@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<style type="text/css">
+.st0{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-dasharray:60,20;}
+.st1{fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;}
+.st2{fill:#fff;}
+</style>
+<polygon class="st2" points="16,48 8,16 40,8 44,24 36,26 34,18 18,22 24,46"/>
+<circle class="st2" cx="14" cy="46" r="10"/>
+<circle class="st0" transform="rotate(90,46,34)" cx="46" cy="34" r="12"/>
+<circle class="st1" cx="46" cy="34" r="8"/>
+<path class="st1" transform="rotate(-30,54,48)" d="M52,41q0-1,1-1h2q1,0,1,1v14q0,1-1,1h-2q-1,0-1-1z"/>
+<path class="st1" d="M40.5,34.5c0-3.3,2.7-6,6-6"/>
+</svg>

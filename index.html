@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<!-- IDEA:
+album art grabber
+search for anything and get art
+choose dimens
+copy button
+download button
+copy link to image button
+share button
+
+song meta data grabber with itunes data?
+
+lyrics and bpm?
+star rating and num views (num views graph?)
+audio decibel graph
+
+make a site for apps, books, movies, etc
+
+RECENT:
+turn on or off display of album art, song preview, and song info
+added url params
+updated close modal css
+added share me, to top button, zoom button
+show when explicit
+
+TODO:
+google ads
+copyright logo?
+some countries don't work. bug test with for each loop
+sharable link to url with query/copy url? copy button to copy link to this search
+buy domain and add domain name extension to header
+
+print, refresh, and fullscreen buttons next to zoom butotn in settings
+make blue colos consistent in css
+option for not show explicit songs
+option to search on youtube/search on youtube link: https://www.youtube.com/results?search_query=Bored+To+Death+blink-182
+ -->
+
+<head>
+
+<title>SongsSearcher</title>
+<meta charset="utf-8">
+<meta name="title=" content="SongsSearcher">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Search by song, artist, or album. Find album art, preview songs, and iTunes links">
+<meta name="keywords" content="song, songs, music, search, find, artist, album, album art, iTunes, artists, albums, metadata, grabber">
+
+<link rel="icon" href="logo/logo-64.png" type="image/png">
+
+<meta name="theme-color" content="#339">
+<meta name="msapplication-navbutton-color" content="#339">
+<meta name="apple-mobile-web-app-status-bar-style" content="#339">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>  
+
+<link rel="stylesheet" href="styles.css">
+<link id="nightStyles" rel="stylesheet" href="">
+<link id="zoomStyles" rel="stylesheet" href="">
+
+<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b748d976de36f0011491982&product=inline-share-buttons' async='async'></script>
+
+</head>
+<body>
+
+<!-- experimental fixed nav with logo and search bar -->
+<!-- <nav class="navbar navbar-light bg-light fixed-top">
+  <a class="navbar-brand"><img id="logo" src="logo/logo.svg" width="32px" class="d-inline-block align-top" alt="">
+    SongsSearcher</a>
+  <form class="form-inline">
+  <div class="input-group">
+    <input autofocus id="search" type="search" class="form-control bg-primary text-light input-lg" placeholder="Enter song, artist, or album..." aria-label="Search" aria-describedby="basic-addon" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <div class="input-group-append">
+      <button id="searchButton" type="button" class="btn btn-primary btn-lg"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  </form>
+</nav> -->
+
+<h3><img id="logo" src="logo/logo.svg" width="64px"> SongsSearcher<small>.com</small></h3>
+<h5>Search by song, artist, or album.
+<br>Find album art, preview songs, and iTunes<small>&reg;</small> links.</h5>
+<button title="Open info" class="btn btn-sm btn-default" data-toggle="modal" data-target="#infoModal"><i class="fas fa-info"></i> Info</button>
+<button title="Open settings" class="btn btn-sm btn-default" data-toggle="modal" data-target="#settingsModal"><i class="fas fa-cog"></i> Settings</button>
+<button id="nightButton" title="Toggle night mode" class="btn btn-sm btn-default"><i class="fas fa-moon"></i> Night</button>
+<hr>
+
+<div class="form-group row">
+  <div class="col-md-4 col-sm-12">
+    <label for="search">Search</label>
+
+	<div class="input-group">
+		<input autofocus id="search" type="search" class="form-control bg-primary text-light input-lg" placeholder="Enter song, artist, or album..." aria-label="Search" aria-describedby="basic-addon" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+		<div class="input-group-append">
+			<button id="searchButton" title="Click to search" type="button" class="btn btn-primary btn-lg"><i class="fas fa-search"></i></button>
+		</div>
+	</div>
+
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <label for="artSize">Album Art Size</label>
+	<select id="artSize" class="form-control">
+		<option value="60">60x60</option>
+		<option value="100" selected>100x100</option>
+		<option value="240">240x240</option>
+		<option value="480">480x480</option>
+	</select>
+  </div>
+  <div class="col-md-4 col-sm-6">
+    <label for="numResults">Number of results (max 200)</label>
+	<input id="numResults" type="number" value="10" min="1" max="200" class="form-control input-sm">
+  </div>
+</div>
+
+<div id="results"></div>
+
+<div class="modal fade" id="infoModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fas fa-info"></i> Info</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p><b>How to use</b></p>
+        <p>Enter the name of a song, artist, or album</p>
+        <p>Choose the size of album art to display and how many results (maximum 200) to display</p>
+        <p>View data on all the top results in the country of your choice</p>
+        <p>View song, artist, and album names with links to all three on iTunes<small>&reg;</small></p>
+        <p>View more track info and cost in local currency, and listen to a preview of the song</p>
+        <p>Click on the album art to get the highest quality available album art (up to 3000x3000px)</p>
+        <hr>
+        <p><b>Uses</b></p>
+      	<p>Use SongsSearcher to grab album art, great for adding song metadata or a new wallpaper for your phone, tablet, or computer</p>
+      	<p>Use SongsSearcher to show your friends (or remind yourself) how a song goes</p>
+      	<p>Use SongsSearcher to quickly discover previews of songs by a new artist</p>
+      	<p>Use SongsSearcher to quickly find links to artists on iTunes<small>&reg;</small></p>
+      	<p>Use SongsSearcher to find the length of a song</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="settingsModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fas fa-cog"></i> Settings</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      	<button id="zoomButton" title="Toggle zoom mode" class="btn btn-sm btn-default"><i class="fas fa-search-plus"></i> Zoom in</button>
+      	<br><br>
+        <label for="langInput">Country</label>
+        <select id="langInput" class="form-control form-control-sm"></select>
+        <br><br>
+        <label>Display: </label>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="artCheckbox" checked type="checkbox" class="form-check-input">Album Art
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="previewCheckbox" checked type="checkbox" class="form-check-input">Song Preview
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="infoCheckbox" checked type="checkbox" class="form-check-input">Song Info
+          </label>
+        </div>
+        <hr>
+        <p><b>About</b></p>
+        <p>Data from <a href="https://www.apple.com/itunes/" target="_blank">iTunes<small>&reg;</small></a>
+        <p>V.1.2.5</p>
+        <p>Made by <a href="https://justingolden21.github.io" target="_blank">Justin Golden</a></p>
+        <p> Contact me at <a href="mailto:justingolden@rgbstudios.org" target="_blank"><i class="fas fa-envelope"></i> justingolden@rgbstudios.org</a></p>
+        <button onclick="window.open('https://www.paypal.me/RGBStudios', '_blank');" class="btn btn-default btn-sm"><i class="fas fa-donate"></i> Donate</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button onclick="toTop()" id="topButton" class="btn btn-lg btn-default" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+
+<div class="sharethis-inline-share-buttons"></div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
