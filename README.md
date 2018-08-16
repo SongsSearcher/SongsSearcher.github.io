@@ -50,12 +50,22 @@ Get links to iTunes® for a song, artist, or album
 
 Find the length of a song or its release date
 
+## Known Problems
+
+- On older versions of mobile Safari, the user interface is jumbled
+
+- Some countries listed don't return data
+
 ## About
 
 Data from the iTunes® API
 
-Email us at <a href="mailto:contact@songssearcher.com">contact@songssearcher.com</a> for questions, comments, or concerns
+Powered by Bootstrap, jQuery, FontAwesome, ShareThis, and Google Analytics
 
-Developed by <a href="https://justingolden21.github.io">Justin Golden</a>
+✉ Email us at <a href="mailto:contact@songssearcher.com">contact@songssearcher.com</a> for questions, comments, or concerns
 
-Donate via PayPal at <a href="https://www.paypal.me/RGBStudios">paypal.me/RGBStudios</a>
+😃 Developed by <a href="https://justingolden21.github.io">Justin Golden</a>
+
+✉ Want to talk with me? Email me at <a href="mailto:justingolden@rgbstudios.org">justingolden@rgbstudios.org</a>
+
+💸 Donate via PayPal at <a href="https://www.paypal.me/RGBStudios">paypal.me/RGBStudios</a>
