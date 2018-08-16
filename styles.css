@@ -82,3 +82,17 @@ input[type=checkbox] {
 	width: 20px;
 	height: 20px;
 }
+
+/* button hover icon transitions */
+button i.fa-cog, button i.fa-info, button i.fa-moon {
+  transition: all .15s ease-in-out;
+}
+button:hover i.fa-cog {
+  transform: rotate(60deg);
+}
+button:hover i.fa-info {
+  transform: scale(1.1);
+}
+button:hover i.fa-moon {
+  transform: scale(-1,1);
+}
