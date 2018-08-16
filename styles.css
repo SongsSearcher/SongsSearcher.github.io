@@ -105,7 +105,7 @@ a {
 }
 
 /* button hover icon transitions */
-button i.fa-cog, button i.fa-info, button i.fa-moon {
+button i.fa-cog, button i.fa-info, button i.fa-moon, #searchButton i.fa-search {
   transition: all .15s ease-in-out;
 }
 button:hover i.fa-cog {
@@ -116,4 +116,7 @@ button:hover i.fa-info {
 }
 button:hover i.fa-moon {
   transform: scale(-1,1);
+}
+#searchButton:active i.fa-search {
+  transform: scale(1.25); 
 }
