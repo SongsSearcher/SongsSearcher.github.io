@@ -60,7 +60,7 @@ Find the length of a song or its release date
 
 Data from the iTunes® API
 
-Powered by Bootstrap, jQuery, FontAwesome, ShareThis, and Google Analytics
+Powered by Bootstrap, jQuery, FontAwesome, ShareThis, Google Analytics, and of course, Github Pages
 
 ✉ Email us at <a href="mailto:contact@songssearcher.com">contact@songssearcher.com</a> for questions, comments, or concerns
 
