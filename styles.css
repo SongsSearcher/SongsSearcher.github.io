@@ -1,3 +1,5 @@
+/*blues: #00c #33f #99f
+hue:240, sat: 100, light: 40,60,80*/
 * {
   text-align: center !important;
 }
@@ -7,11 +9,19 @@ body {
   margin-right: 50px;
 }
 ::-moz-selection {
-  background: #66c;
+  background: #99f;
   color: #fff;
 }
 ::selection {
-  background: #66c;
+  background: #99f;
+  color: #fff;
+}
+input::-moz-selection {
+  background: #00c;
+  color: #fff;
+}
+input::selection {
+  background: #00c;
   color: #fff;
 }
 #langInput {
@@ -38,7 +48,7 @@ br, .close {
   transform: rotate(15deg) scale(1.2);
 }
 .btn-default:hover {
-  color: #339;
+  color: #00c;
 }
 
 /*.album-art {*/
@@ -81,6 +91,17 @@ input[type=checkbox] {
 	margin-left: 20px !important;
 	width: 20px;
 	height: 20px;
+}
+
+/*override bootstrap blues*/
+a {
+  color: #33f !important;
+}
+.bg-primary {
+  background-color: #33f !important;
+}
+.btn-primary {
+  background-color: #33f !important;
 }
 
 /* button hover icon transitions */
