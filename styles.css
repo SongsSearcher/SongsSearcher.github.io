@@ -34,7 +34,7 @@ br, .close {
 
   transition: all .25s ease-in-out;
 }
-#logo:hover, #logo.animated {
+#logo.animated {
   transform: rotate(15deg) scale(1.2);
 }
 .btn-default:hover {

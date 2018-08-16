@@ -118,13 +118,17 @@ $infoCheckbox.on('change', function() {
 });
 
 
+$('#logo').on('click', function() {
+  $('#logo').toggleClass('animated');
+});
 
-$searchButton.on('click',function() {
+
+$searchButton.on('click', function() {
   getData($input.val() );
 });
 
-$input.on('keydown',function(e){
-	if(e.keyCode == 13 ) { //enter
+$input.on('keydown', function(e){
+	if(e.keyCode == 13) { //enter
 		getData($input.val() );
 	}
 });
