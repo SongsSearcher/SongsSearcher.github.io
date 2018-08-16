@@ -1,4 +1,4 @@
-# songsearch
+# SongsSearcher <img src="logo/logo.svg" width="64px">
 
 Search by song, artist, or album. Find album art, preview songs, and iTunes links
 
