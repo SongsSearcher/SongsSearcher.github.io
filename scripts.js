@@ -13,7 +13,6 @@ $artCheckbox.prop('checked', true);
 $previewCheckbox.prop('checked', true);
 $infoCheckbox.prop('checked', true);
 $linkCheckbox.prop('checked', false);
-$linkCheckbox.next().toggleClass("fas").toggleClass("far").toggleClass("fa-check-square").toggleClass("fa-square");
 
 function getData(term){
   $.ajax({
