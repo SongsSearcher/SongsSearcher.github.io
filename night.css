@@ -1,20 +1,36 @@
+/* basics */
 body, .modal-body, .modal-header {
   background-color: #333;
   color: #fff;
 }
 hr {
-  background-color: #999;
-}
-input.bg-primary {
-  border: 0px;
+  background-color: #ccc;
 }
 
-/*sharethis*/
+h3 {
+  background-color: rgba(51,51,51,.8);
+}
+
+/* sharethis */
 .st-btn {
   background-color: #fff !important;
-} .st-btn svg {
+}
+.st-btn svg {
   fill: #333 !important;
 }
 .st-total {
   color: #fff !important;
+}
+
+/* buttons */
+.btn-outline-dark {
+	background-color: #fff;
+	color: #333;
+}
+.btn-outline-dark:hover, .btn-outline-dark:active {
+	background-color: #333;
+	color: #fff;
+}
+.btn-dark, .btn-dark:hover, .btn-dark:active {
+	border: 1px solid #fff;
 }

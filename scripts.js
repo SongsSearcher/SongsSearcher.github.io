@@ -125,6 +125,16 @@ $('#logo').on('click', function() {
   $('#logo').toggleClass('animated');
 });
 
+$('#copy').on('click', function() {
+	let tmp = $('<input type="text">').appendTo(document.body);
+	tmp.val(window.location.href);
+	tmp.select();
+	document.execCommand('copy');
+	tmp.remove();
+});
+
+
+
 
 $searchButton.on('click', function() {
   getData($input.val() );

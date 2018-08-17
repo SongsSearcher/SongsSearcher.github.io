@@ -124,13 +124,15 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
   </form>
 </nav> -->
 
-<h3><img id="logo" src="logo/logo.svg" width="64px"> SongsSearcher<small>.com</small></h3>
-<h5>Search by song, artist, or album.
-<br>Find album art, preview songs, and iTunes<small>&reg;</small> links.</h5>
-<button title="Open info" class="btn btn-sm btn-default" data-toggle="modal" data-target="#infoModal"><i class="fas fa-info"></i> Info</button>
-<button title="Open settings" class="btn btn-sm btn-default" data-toggle="modal" data-target="#settingsModal"><i class="fas fa-cog"></i> Settings</button>
-<button id="nightButton" title="Toggle night mode" class="btn btn-sm btn-default"><i class="fas fa-moon"></i> Night</button>
+<h3><img id="logo" src="logo/logo.svg" width="64px"> SongsSearcher<small>.com</small><hr></h3>
+<p>Search by song, artist, or album.
+<br>Find album art, preview songs, and iTunes<small>&reg;</small> links.</p>
+<button title="Open info" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#infoModal"><i class="fas fa-info"></i> Info</button>
+<button title="Open settings" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#settingsModal"><i class="fas fa-cog"></i> Settings</button>
+<button id="nightButton" title="Toggle night mode" class="btn btn-sm btn-outline-dark"><i class="fas fa-moon"></i> Night</button>
+<button id="copy" title="copy link to website with search" class="btn btn-sm btn-outline-dark"><i class="fas fa-copy"></i> Copy</button>
 <hr>
+
 
 <div class="form-group row">
   <div class="col-md-4 col-sm-12">
@@ -196,7 +198,7 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-      	<button id="zoomButton" title="Toggle zoom mode" class="btn btn-sm btn-default"><i class="fas fa-search-plus"></i> Zoom in</button>
+      	<button id="zoomButton" title="Toggle zoom mode" class="btn btn-sm btn-outline-dark"><i class="fas fa-search-plus"></i> Zoom in</button>
       	<br><br>
         <label for="langInput">Country: </label>
         <select id="langInput" class="form-control form-control-sm"></select>
@@ -222,17 +224,17 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
         </div>
         <hr>
         <p><b><i class="fas fa-question"></i> About</b></p>
-        <p>V.1.2.19</p>
+        <p>V.1.2.20</p>
         <p>Data from <a href="https://www.apple.com/itunes/" target="_blank">iTunes<small>&reg;</small></a>
         <!-- <p>Check out our <a href="https://github.com/SongsSearcher/SongsSearcher.github.io" target="_blank">Github Repo</a></p> -->
         <p>Contact us at <a href="mailto:contact@songssearcher.com" target="_blank"><i class="fas fa-envelope"></i> contact@songssearcher.com</a></p>
-        <button title="Donate via PayPal" onclick="window.open('https://www.paypal.me/RGBStudios', '_blank');" class="btn btn-default btn-sm"><i class="fas fa-donate"></i> Donate</button>
+        <button title="Donate via PayPal" onclick="window.open('https://www.paypal.me/RGBStudios', '_blank');" class="btn btn-outline-dark btn-sm"><i class="fas fa-donate"></i> Donate</button>
       </div>
     </div>
   </div>
 </div>
 
-<button onclick="toTop()" id="topButton" class="btn btn-lg btn-default" title="Go to top"><i class="fas fa-arrow-up"></i></button>
+<button onclick="toTop()" id="topButton" class="btn btn-lg btn-outline-dark" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
 <div class="sharethis-inline-share-buttons"></div>
 

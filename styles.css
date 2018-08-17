@@ -1,12 +1,13 @@
 /*blues: #00c #33f #99f
 hue:240, sat: 100, light: 40,60,80*/
+
 * {
   text-align: center !important;
 }
 body {
-  margin: 25px;
-  margin-left: 50px;
-  margin-right: 50px;
+  /*top margin already covered by sticky heading*/
+  margin-left: 25px;
+  margin-right: 25px;
 }
 ::-moz-selection {
   background: #99f;
@@ -47,15 +48,16 @@ br, .close, .form-check-label {
 #logo.animated {
   transform: rotate(15deg) scale(1.2);
 }
-.btn-default:hover {
+
+/*.btn-default:hover {
   color: #00c;
-}
+}*/
 
 /*.album-art {*/
   /*transition: all .1s ease-in-out !important;*/
 /*}*/
+
 .album-art:hover {
-  /*background-color: #66c;*/
   transform: scale(1.1);
 }
 .close {
@@ -105,7 +107,7 @@ a, .text-info {
 }
 
 /* button hover icon transitions */
-button i.fa-cog, button i.fa-info, button i.fa-moon, #searchButton i.fa-search {
+button i.fa-cog, button i.fa-info, button i.fa-moon, button i.fa-copy, #searchButton i.fa-search {
   transition: all .15s ease-in-out;
 }
 button:hover i.fa-cog {
@@ -116,6 +118,9 @@ button:hover i.fa-info {
 }
 button:active i.fa-moon {
   transform: scale(-1,1);
+}
+button:active i.fa-copy {
+  transform: scale(1,-1);
 }
 #searchButton:active i.fa-search {
   transform: scale(1.25); 
@@ -133,7 +138,34 @@ input[type=checkbox] {
 .fa-check-square, .fa-square {
   font-size: 24px;
 }
-.form-check-label:hover {
+/*.form-check-label:hover {
   color: #33f;
+}*/
+
+/*sticky header*/
+h3 {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: rgba(255,255,255,.8);
+  padding-top: 10px;
 }
 
+.btn-outline-dark {
+  border: 1px solid #333;
+  color: #333;
+  background-color: #fff;
+}
+.btn-outline-dark:hover, .btn-outline-dark:active {
+  color: #fff;
+  background-color: #333;
+}
+.btn-dark, .btn-dark:hover, .btn-dark:active {
+  color: #fff;
+  background-color: #333;
+}
+
+input.bg-primary, .btn-primary {
+  border: 1px solid #fff;
+}
