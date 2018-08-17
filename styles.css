@@ -63,6 +63,7 @@ br, .close, .form-check-label {
 .close {
   background-color: #c33 !important;
   color: #fff !important;
+  border-radius: 5px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -107,10 +108,10 @@ a, .text-info {
 }
 
 /* button hover icon transitions */
-button i.fa-cog, button i.fa-info, button i.fa-moon, button i.fa-copy, #searchButton i.fa-search {
+button i.fa-cog, button i.fa-info, button i.fa-moon, button i.fa-copy, #searchButton i.fa-search, i.fa-sync-alt, i.fa-arrows-alt {
   transition: all .15s ease-in-out;
 }
-button:hover i.fa-cog {
+button:hover i.fa-cog, button:hover i.fa-sync-alt {
   transform: rotate(60deg);
 }
 button:hover i.fa-info {
@@ -122,7 +123,7 @@ button:active i.fa-moon {
 button:active i.fa-copy {
   transform: scale(1,-1);
 }
-#searchButton:active i.fa-search {
+#searchButton:active i.fa-search, button:hover i.fa-arrows-alt {
   transform: scale(1.25); 
 }
 
@@ -168,4 +169,22 @@ h3 {
 
 input.bg-primary, .btn-primary {
   border: 1px solid #fff;
+}
+.modal-content {
+  border: 0;
+}
+
+
+/*----------------print----------------*/
+
+@media print {
+  .song-preview, #topButton, .modal, .st-btn, .form-group.row, .no-print {
+    display: none !important;
+  }
+  h3 {
+    position: inherit;
+  }
+  .modal-backdrop {
+    z-index: -99 !important;
+  }
 }

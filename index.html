@@ -39,6 +39,15 @@ updated color palettes
 updated buttons and checkboxes
 sticky header
 copy button
+copyright symbol
+1.3.0
+moved copy button, added print button, fullscreen button, refresh button
+added print css
+updated modal ui
+updated result display based off of album art and checkboxes
+updated info modal
+added links to youtube, lyrics, and bpm and checkbox (deault off)
+minor css updates
 
 TODO:
 
@@ -46,18 +55,16 @@ do what i did for ignite.cards with icons an showing up custom on platofrms favi
 make a fb and twitter and link to those, and promo images/banners
 
 figure out ads
-copyright logo?
+
 some countries don't work. bug test with for each loop
 get https instead of http
 --------------
 mobile safari iphone night mode makes buttons hard to see (dark text on dark button)
 make night.css make buttons lighter?
 
-update info and settings modals
 replace search icon with my icon from logo
-print, refresh, and fullscreen buttons next to zoom butotn in settings
-option for not show explicit songs
-option to search on youtube/search on youtube link: https://www.youtube.com/results?search_query=Bored+To+Death+blink-182
+
+option for not show explicit songssearcher
  -->
 
 <head>
@@ -125,15 +132,17 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
   </form>
 </nav> -->
 
-<h3><img id="logo" src="logo/logo.svg" width="64px"><small style="font-size: 12px;"> &copy;</small> SongsSearcher<small>.com</small><hr></h3>
+<h3><img id="logo" src="logo/logo.svg" width="64px">
+  <!-- <small style="font-size: 12px;"> &copy;</small> -->
+  SongsSearcher<small>.com</small><hr></h3>
+<div class="no-print">
 <p>Search by song, artist, or album.
 <br>Find album art, preview songs, and iTunes<small>&reg;</small> links.</p>
 <button title="Open info" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#infoModal"><i class="fas fa-info"></i> Info</button>
 <button title="Open settings" class="btn btn-sm btn-dark" data-toggle="modal" data-target="#settingsModal"><i class="fas fa-cog"></i> Settings</button>
 <button id="nightButton" title="Toggle night mode" class="btn btn-sm btn-outline-dark"><i class="fas fa-moon"></i> Night</button>
-<button id="copy" title="copy link to website with search" class="btn btn-sm btn-outline-dark"><i class="fas fa-copy"></i> Copy</button>
 <hr>
-
+</div>
 
 <div class="form-group row">
   <div class="col-md-4 col-sm-12">
@@ -142,6 +151,7 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
 	<div class="input-group">
 		<input autofocus id="search" type="search" class="form-control bg-primary text-light input-lg" placeholder="Enter song, artist, or album..." aria-label="Search" aria-describedby="basic-addon" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
 		<div class="input-group-append">
+      <!-- replace fontawesome icon with <img src="logo/icon-search-white.svg" width="40px"> ? -->
 			<button id="searchButton" title="Click to search" type="button" class="btn btn-primary btn-lg"><i class="fas fa-search"></i></button>
 		</div>
 	</div>
@@ -173,19 +183,22 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
       </div>
       <div class="modal-body">
         <p><b>How to use</b></p>
-        <p>Enter the name of a song, artist, or album</p>
-        <p>Choose the size of album art to display and how many results (maximum 200) to display</p>
-        <p>View data on the top results in the country of your choice</p>
-        <p>View song, artist, and album names with links to all three on iTunes<small>&reg;</small></p>
-        <p>View more track info, including cost in local currency, and listen to a preview of the song</p>
-        <p>Click on the album art to get the highest quality available album art (up to 3000x3000px)</p>
+        <p>Enter the name of a song, artist, or album.</p>
+        <p>Choose the size of album art and how many results (maximum 200) to display.</p>
+        <p>Get data on the top results in the country of your choice.</p>
+        <p>Click on the album art to get the highest quality available album art (up to 3000x3000px).</p>
+        <p>View song, artist, and album names with links to all three on iTunes<small>&reg;</small>.</p>
+        <p>View more track info, including cost in local currency, release date, and length.</p>
+        <p>Listen to a preview of the songs.</p>
+
         <hr>
         <p><b>Uses</b></p>
-      	<p>Grab album art, great for adding song metadata or a new wallpaper for your phone, tablet, or computer</p>
-      	<p>Show your friends (or remind yourself) how a song goes</p>
-      	<p>Discover previews of songs by a new artist</p>
-      	<p>Get links to iTunes for a song, artist, or album<small>&reg;</small></p>
-      	<p>Find the length of a song or its release date</p>
+      	<p>Quickly grab album art, to update your song metadata.</p>
+        <p>Use album art as a new wallpaper for your phone, tablet, or computer.</p>
+      	<p>Show your friends (or remind yourself) how a song goes.</p>
+      	<p>Discover new songs by a specific artist.</p>
+      	<p>Get links to iTunes<small>&reg;</small> for a song, artist, or album.</p>
+      	<p>Quickly find the length of a song or its release date.</p>
       </div>
     </div>
   </div>
@@ -199,39 +212,45 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body">
-      	<button id="zoomButton" title="Toggle zoom mode" class="btn btn-sm btn-outline-dark"><i class="fas fa-search-plus"></i> Zoom in</button>
-      	<br><br>
+        
         <label for="langInput">Country: </label>
         <select id="langInput" class="form-control form-control-sm"></select>
         <br><br>
         <label>Display: </label>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="artCheckbox" tabindex="-1" checked type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Album Art
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="previewCheckbox" tabindex="-1" checked type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Song Preview
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="infoCheckbox" tabindex="-1" checked type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Song Info
+          </label>
+        </div>
+        <div class="form-check-inline">
+          <label class="form-check-label">
+            <input id="linkCheckbox" tabindex="-1" type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Links to Youtube, Lyrics, and BPM
+          </label>
+        </div>
+        <br><br>
+        <button id="copy" title="copy link to website with search" class="btn btn-sm btn-outline-dark"><i class="fas fa-copy"></i> Copy</button>
+        <button id="print" title="print your search results" class="btn btn-sm btn-outline-dark" onclick="window.print();"><i class="fas fa-print"></i> Print</button>
+        <button title="refresh page" class="btn btn-sm btn-outline-dark" onclick="location.reload();"><i class="fas fa-sync-alt"></i> Refresh</button>
+        <button title="toggle fullscreen" class="btn btn-sm btn-outline-dark" onclick="toggleFullscreen();"><i class="fas fa-arrows-alt"></i> Fullscreen</button>
+        <button id="zoomButton" title="Toggle zoom mode" class="btn btn-sm btn-outline-dark"><i class="fas fa-search-plus"></i> Zoom in</button>
 
-       
-
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input id="artCheckbox" checked type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Album Art
-          </label>
-        </div>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input id="previewCheckbox" checked type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Song Preview
-          </label>
-        </div>
-        <div class="form-check-inline">
-          <label class="form-check-label">
-            <input id="infoCheckbox" checked type="checkbox" class="form-check-input"><i class="fas fa-check-square"></i> Song Info
-          </label>
-        </div>
         <hr>
         <p><b><i class="fas fa-question"></i> About</b></p>
-        <p>V.1.2.21</p>
+        <p>V.1.3.0</p>
         <p>Data from <a href="https://www.apple.com/itunes/" target="_blank">iTunes<small>&reg;</small></a>
         <!-- <p>Check out our <a href="https://github.com/SongsSearcher/SongsSearcher.github.io" target="_blank">Github Repo</a></p> -->
         <p>Contact us at <a href="mailto:contact@songssearcher.com" target="_blank"><i class="fas fa-envelope"></i> contact@songssearcher.com</a></p>
         <button title="Donate via PayPal" onclick="window.open('https://www.paypal.me/RGBStudios', '_blank');" class="btn btn-outline-dark btn-sm"><i class="fas fa-donate"></i> Donate</button>
-        <hr>
-        <small>The SongsSearcher logo is &copy; 2018</small>
       </div>
     </div>
   </div>
@@ -240,6 +259,8 @@ option to search on youtube/search on youtube link: https://www.youtube.com/resu
 <button onclick="toTop()" id="topButton" class="btn btn-lg btn-outline-dark" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
 <div class="sharethis-inline-share-buttons"></div>
+
+<small>The SongsSearcher logo is &copy; 2018</small>
 
 <script src="scripts.js"></script>
 </body>

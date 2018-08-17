@@ -5,12 +5,15 @@ let $input = $("#search"),
   $langInput = $('#langInput'),
   $artCheckbox = $('#artCheckbox'),
   $previewCheckbox = $('#previewCheckbox'),
-	$infoCheckbox = $('#infoCheckbox'),
+  $infoCheckbox = $('#infoCheckbox'),
+	$linkCheckbox = $('#linkCheckbox'),
 	$artSize = $("#artSize");
 
 $artCheckbox.prop('checked', true);
 $previewCheckbox.prop('checked', true);
 $infoCheckbox.prop('checked', true);
+$linkCheckbox.prop('checked', false);
+$linkCheckbox.next().toggleClass("fas").toggleClass("far").toggleClass("fa-check-square").toggleClass("fa-square");
 
 function getData(term){
   $.ajax({
@@ -32,16 +35,22 @@ function getData(term){
         $('#logo').toggleClass('animated');
 
         $results.empty();
-        $results[0].insertAdjacentHTML('beforeend', '<p>displaying ' + data.results.length + ' results</p><hr>');
+        $results[0].insertAdjacentHTML('beforeend', '<p>Displaying ' + data.results.length + ' result' + (data.results.length==1?'':'s') + ' for <b>' + term + '</b></p><hr>');
 
         $.each(data.results,function(i,result){
           let displayUrl = result.artworkUrl100.replace('100x100', $artSize.val()+'x'+$artSize.val() );
           let fullUrl = result.artworkUrl100.replace('100x100','3000x3000');
+          let searchTerm = escape( (result.artistName + '+' + result.trackName).replace(' ','+') );
+          //example of bpm search term: "blink-182-bored-to-death?q=blink-182%20bored%20to%20death"
+          //test cases: artist and song names with and without spaces, dashes, parentheses, apostrophies, commas, dollar signs, ampersands
+          //yes this line of code is stupid. don't touch it. please. 
+          let bpmSearchTerm = ( (result.artistName + '-' + result.trackName).replace(/%20/g, "-").replace(/ /g, "-").replace(/'/g, "").replace(/,/g, "").replace(/\$/g, "").replace(/&/g, "").replace(/--/,"-").replace(/--/,"-") + '?q=' + escape(result.artistName + ' ' + result.trackName) );
+          bpmSearchTerm = bpmSearchTerm.replace('(','').replace(')','').toLowerCase();
           let show = showCols();
           $results[0].insertAdjacentHTML('beforeend', (show?'<div class="row"><div class="col-sm-6">':'') +
       			'<a class="album-art" title="click for larger album art" href="' + fullUrl + '" target="_blank"><img class="img-thumbnail album-art" src="' + displayUrl + '"></a>' + 
-      			'<br><audio controls class="song-preview" title="click play to preview the song"><source src="' + result.previewUrl + '" type="audio/mp4"></audio>' +
-      			'<br>' + (show?'</div><div class="col-sm-6 song-info">':'') +
+      			'<br><audio controls class="song-preview" title="click play to preview ' + result.trackName + '"><source src="' + result.previewUrl + '" type="audio/mp4"></audio>' +
+      			'<br>' + (show?'</div><div class="col-sm-6 song-info">':'<div class="song-info">') +
       			'Track: <a href="' + result.trackViewUrl + '" target="_blank">' + result.trackName + (result.trackExplicitness=='explicit'?' 🅴':'') + '</a>' +
       			'<br>Artist: <a href="' + result.artistViewUrl + '" target="_blank">' + result.artistName + '</a>' +
             '<br>Album: <a href="' + result.collectionViewUrl + '" target="_blank">' + result.collectionName + (result.collectionExplicitness=='explicit'?' 🅴':'') + '</a>' +
@@ -50,12 +59,18 @@ function getData(term){
       			'<br>Release Date: ' + result.releaseDate.slice(0,10) + 
       			'<br>Album Price: ' + result.collectionPrice + ' ' + result.currency +
       			'<br>Song Price: ' + result.trackPrice + ' ' + result.currency +
-      			'<br>' + (show?'</div></div>':'') + '<hr>');
+      			'<br>' + (show?'</div></div>':'</div>') + 
+            '<div class="song-links"><br>' + 
+            '<a href="https://www.youtube.com/results?search_query=' + searchTerm + '" target="_blank">Search YouTube</a><br>' + 
+            '<a href="https://search.azlyrics.com/search.php?q=' + searchTerm + '" target="_blank">Search AZLyrics</a><br>' + 
+            '<a href="https://songbpm.com/' + bpmSearchTerm + '" target="_blank">Search BPM</a></div>' + 
+            '<hr>');
         });
 
         $('.album-art').css('display', $artCheckbox.is(':checked') ? 'inline' : 'none');
         $('.song-preview').css('display', $previewCheckbox.is(':checked') ? 'inline' : 'none');
         $('.song-info').css('display', $infoCheckbox.is(':checked') ? 'inline' : 'none');
+        $('.song-links').css('display', $linkCheckbox.is(':checked') ? 'inline' : 'none');
 
       },
       error: function(e){
@@ -66,7 +81,7 @@ function getData(term){
 
 //return bool for if we split UI into 2 cols or not
 function showCols() {
-	return $artSize.val() >= 100 || $artSize.val() <= 240;
+	return $artSize.val() >= 100 && $artSize.val() <= 240 && $artCheckbox.is(':checked') && $infoCheckbox.is(':checked');
 }
 
 //https://stackoverflow.com/questions/21294302/converting-milliseconds-to-minutes-and-seconds-with-javascript
@@ -120,6 +135,11 @@ $infoCheckbox.on('change', function() {
   $(this).next().toggleClass("fas").toggleClass("far").toggleClass("fa-check-square").toggleClass("fa-square");
 });
 
+$linkCheckbox.on('change', function() {
+  $('.song-links').css('display', $linkCheckbox.is(':checked') ? 'inline' : 'none');
+  $(this).next().toggleClass("fas").toggleClass("far").toggleClass("fa-check-square").toggleClass("fa-square");
+});
+
 
 $('#logo').on('click', function() {
   $('#logo').toggleClass('animated');
@@ -132,9 +152,6 @@ $('#copy').on('click', function() {
 	document.execCommand('copy');
 	tmp.remove();
 });
-
-
-
 
 $searchButton.on('click', function() {
   getData($input.val() );
@@ -193,8 +210,27 @@ function toTop() {
 }
 
 
-
-
+//https://stackoverflow.com/questions/3900701/onclick-go-full-screen
+function toggleFullscreen() {
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (document.documentElement.requestFullScreen) {  
+      document.documentElement.requestFullScreen();  
+    } else if (document.documentElement.mozRequestFullScreen) {  
+      document.documentElement.mozRequestFullScreen();  
+    } else if (document.documentElement.webkitRequestFullScreen) {  
+      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+    }  
+  } else {  
+    if (document.cancelFullScreen) {  
+      document.cancelFullScreen();  
+    } else if (document.mozCancelFullScreen) {  
+      document.mozCancelFullScreen();  
+    } else if (document.webkitCancelFullScreen) {  
+      document.webkitCancelFullScreen();  
+    }  
+  }  
+}
 
 
 //https://codepen.io/shshaw/pen/XddjdR
