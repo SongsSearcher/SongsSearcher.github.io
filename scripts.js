@@ -109,12 +109,15 @@ $(function() {
 
 $artCheckbox.on('change', function() {
   $('.album-art').css('display', $artCheckbox.is(':checked') ? 'inline' : 'none');
+  $(this).next().toggleClass("fas").toggleClass("far");
 });
 $previewCheckbox.on('change', function() {
   $('.song-preview').css('display', $previewCheckbox.is(':checked') ? 'inline' : 'none');
+  $(this).next().toggleClass("fas").toggleClass("far");
 });
 $infoCheckbox.on('change', function() {
   $('.song-info').css('display', $infoCheckbox.is(':checked') ? 'inline' : 'none');
+  $(this).next().toggleClass("fas").toggleClass("far");
 });
 
 

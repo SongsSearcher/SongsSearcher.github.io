@@ -28,7 +28,7 @@ input::selection {
   width:250px;
   display: inline;
 }
-br, .close {
+br, .close, .form-check-label {
 	user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -94,7 +94,7 @@ input[type=checkbox] {
 }
 
 /*override bootstrap blues*/
-a {
+a, .text-info {
   color: #33f !important;
 }
 .bg-primary {
@@ -114,9 +114,26 @@ button:hover i.fa-cog {
 button:hover i.fa-info {
   transform: translateY(-2px);
 }
-button:hover i.fa-moon {
+button:active i.fa-moon {
   transform: scale(-1,1);
 }
 #searchButton:active i.fa-search {
   transform: scale(1.25); 
 }
+
+.form-check-label, input[type=checkbox] {
+  cursor: pointer;
+}
+
+input[type=checkbox] {
+  opacity: 0 !important;
+  width: 0px !important;
+  position: absolute !important;
+}
+.fa-check-square {
+  font-size: 24px;
+}
+.form-check-label:hover {
+  color: #33f;
+}
+
