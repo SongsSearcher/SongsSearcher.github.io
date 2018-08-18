@@ -184,6 +184,12 @@ input.bg-primary, .btn-primary {
 }
 
 
+.amzn-native-product-subtitle-text, .amzn-native-product-title-text, .amzn-native-product {
+  color: #333 !important;
+}
+.amzn-native-product {
+  background-color: #fff !important;
+}
 
 /*snackbar*/
 #snackbar {

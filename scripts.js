@@ -191,10 +191,6 @@ $input.on('keydown', function(e){
 
 
 let night = false;
-$('.amzn-native-product-subtitle-text').css('color','#333');
-$('.amzn-native-product-title-text').css('color','#333');
-$('.amzn-native-product').css('color','#333');
-$('.amzn-native-product').css('background-color','#fff');
 
 $('#nightButton').click(function() {
     night = !night;
@@ -204,10 +200,6 @@ $('#nightButton').click(function() {
       $('#theme1').prop('content','#333');
       $('#theme2').prop('content','#333');
       $('#theme3').prop('content','#333');
-      $('.amzn-native-product-subtitle-text').css('color','#fff');
-      $('.amzn-native-product-title-text').css('color','#fff');
-      $('.amzn-native-product').css('color','#fff');
-      $('.amzn-native-product').css('background-color','#333');
     }
     else {
       $('#nightStyles').prop('href','');
@@ -215,10 +207,6 @@ $('#nightButton').click(function() {
       $('#theme1').prop('content','');
       $('#theme2').prop('content','');
       $('#theme3').prop('content','');
-      $('.amzn-native-product-subtitle-text').css('color','#333');
-      $('.amzn-native-product-title-text').css('color','#333');
-      $('.amzn-native-product').css('color','#333');
-      $('.amzn-native-product').css('background-color','#fff');
     }
 });
 

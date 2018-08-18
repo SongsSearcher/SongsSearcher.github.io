@@ -1,4 +1,4 @@
-/* basics */
+ basics */
 body, .modal-body, .modal-header {
   background-color: #333;
   color: #fff;
@@ -35,13 +35,16 @@ h3 {
 	border: 1px solid #fff;
 }
 
+/*amazon ads*/
+.amzn-native-product-subtitle-text, .amzn-native-product-title-text, .amzn-native-product {
+  color: #fff !important;
+}
 .amzn-native-product {
   background-color: #333 !important;
-  color: #fff !important;
 }
 
 
 /*.amzn-native-products-list, .amzn-native-product {
   background-color: #333 !important;
   z-index: -99;
-}*/
+}
