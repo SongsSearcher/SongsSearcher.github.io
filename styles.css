@@ -178,6 +178,11 @@ input.bg-primary, .btn-primary {
   border: 0;
 }
 
+/* remove "Ads by Amazon" text */
+.amzn-native-brand-text {
+  display: none;
+}
+
 
 /*----------------print----------------*/
 
