@@ -15,6 +15,9 @@ $infoCheckbox.prop('checked', true);
 $linkCheckbox.prop('checked', false);
 
 function getData(term){
+  $results.empty();
+  $results[0].insertAdjacentHTML('beforeend', '<p>Displaying 0 results for <b>' + term + '</b></p><hr><p>No results found in selected country</p>');
+
   try {
   $.ajax({
       url: 'https://itunes.apple.com/search',
