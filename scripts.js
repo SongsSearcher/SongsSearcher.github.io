@@ -22,7 +22,7 @@ function getData(term){
   // amzn_assoc_default_search_phrase = term;
 
   //hide ads until search finishes
-  $("#ads").css('display','none');
+  // $("#ads").css('display','none');
 
   try {
   $.ajax({
@@ -83,7 +83,7 @@ function getData(term){
         $('.song-links').css('display', $linkCheckbox.is(':checked') ? 'inline' : 'none');
 
         //show ads only after load
-        $("#ads").css('display','');
+        // $("#ads").css('display','');
 
       },
       error: function(e){
