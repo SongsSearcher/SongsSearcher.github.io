@@ -35,6 +35,6 @@ h3 {
 	border: 1px solid #fff;
 }
 
-.amzn-native-product-link-catcher {
+.amzn-native-products-list, .amzn-native-product {
   background-color: #333 !important;
 }
