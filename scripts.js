@@ -191,7 +191,6 @@ $input.on('keydown', function(e){
 
 
 let night = false;
-
 $('#nightButton').click(function() {
     night = !night;
     if(night) {
