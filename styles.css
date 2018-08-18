@@ -182,7 +182,7 @@ input.bg-primary, .btn-primary {
 /*----------------print----------------*/
 
 @media print {
-  .song-preview, #topButton, .modal, .st-btn, .form-group.row, .no-print, .song-links {
+  .song-preview, #topButton, .modal, .st-btn, .form-group.row, .no-print, .song-links, .ads {
     display: none !important;
   }
   h3 {
