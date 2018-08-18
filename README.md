@@ -84,8 +84,4 @@ Powered by Bootstrap, jQuery, FontAwesome, ShareThis, Google Analytics, and of c
 
 <a href="https://twitter.com/songssearcher" target="_blank">twitter.com/songssearcher</a>
 
-😃 Developed by <a href="https://justingolden21.github.io">Justin Golden</a>
-
-✉ Want to talk with me? Email me at <a href="mailto:justingolden@rgbstudios.org">justingolden@rgbstudios.org</a>
-
 💸 Donate via PayPal at <a href="https://www.paypal.me/RGBStudios">paypal.me/RGBStudios</a>
