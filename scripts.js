@@ -21,6 +21,9 @@ function getData(term){
   //for amazon ads
   // amzn_assoc_default_search_phrase = term;
 
+  //hide ads until search finishes
+  $("#ads").css('display','none');
+
   try {
   $.ajax({
       url: 'https://itunes.apple.com/search',
@@ -78,6 +81,9 @@ function getData(term){
         $('.song-preview').css('display', $previewCheckbox.is(':checked') ? 'inline' : 'none');
         $('.song-info').css('display', $infoCheckbox.is(':checked') ? 'inline' : 'none');
         $('.song-links').css('display', $linkCheckbox.is(':checked') ? 'inline' : 'none');
+
+        //show ads only after load
+        $("#ads").css('display','');
 
       },
       error: function(e){
