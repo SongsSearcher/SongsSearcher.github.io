@@ -224,7 +224,7 @@ input.bg-primary, .btn-primary {
 /*----------------print----------------*/
 
 @media print {
-  .song-preview, #topButton, .modal, .sharethis-inline-share-buttons, .form-group.row, .no-print, .song-links, #ads {
+  .song-preview, #topButton, .modal, .sharethis-inline-share-buttons, .form-group.row, .no-print, .song-links, #ads, #snackbar {
     display: none !important;
   }
   h3 {
