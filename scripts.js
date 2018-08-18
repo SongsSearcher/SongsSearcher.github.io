@@ -15,6 +15,7 @@ $infoCheckbox.prop('checked', true);
 $linkCheckbox.prop('checked', false);
 
 function getData(term){
+  try {
   $.ajax({
       url: 'https://itunes.apple.com/search',
       dataType: 'jsonp',
@@ -74,9 +75,14 @@ function getData(term){
 
       },
       error: function(e){
+        console.warn('Error retrieving data');
         console.warn(e);
       }
     });
+    }catch(e) {
+      console.warn('Caught error');
+      console.warn(e);
+    }
 }
 
 //return bool for if we split UI into 2 cols or not
