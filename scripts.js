@@ -16,7 +16,7 @@ $linkCheckbox.prop('checked', false);
 
 function getData(term){
   $results.empty();
-  $results[0].insertAdjacentHTML('beforeend', '<p>Displaying 0 results for <b>' + term + '</b></p><hr><p>No results found in selected country</p>');
+  $results[0].insertAdjacentHTML('beforeend', '<p><i class="fas fa-sync fa-spin"></i><b> Gathering results...</b></p><hr>');
 
   try {
   $.ajax({
