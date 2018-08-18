@@ -4,25 +4,27 @@
 
 🎵 Search by song, artist, or album. 
 
-🔍 Find album art, preview songs, and iTunes® links.
+🔍 Quickly grab album art, preview songs, and more.
 
 <img src="screenshot.png">
 
-## How to use
+## ❓ How to use
 
-Enter the name of a song, artist, or album
+Enter the name of a song, artist, or album.
 
-Choose the size of album art to display and how many results (maximum 200) to display
+Choose the size of album art and how many results (maximum 200) to display.
 
-View data on the top results in the country of your choice
+Get data on the top results in the country of your choice.
 
-View song, artist, and album names with links to all three on iTunes®
+Click on the album art to get the highest quality available album art (up to 3000x3000px).
 
-View more track info, including cost in local currency, and listen to a preview of the song
+View song, artist, and album names with links to all three on iTunes®.
 
-Click on the album art to get the highest quality available album art (up to 3000x3000px)
+View more track info, including cost in local currency, release date, and length.
 
-## Options / Features
+Listen to a preview of the songs.
+
+## ⚙ Options / Features
 
 - Night mode
 
@@ -38,25 +40,37 @@ Click on the album art to get the highest quality available album art (up to 300
 
 - Zoom in feature for accessibility
 
-## Uses
+- Back to top button
 
-Grab album art, great for adding song metadata or a new wallpaper for your phone, tablet, or computer
+- Copy the link to your search
 
-Show your friends (or remind yourself) how a song goes
+- Print, refresh, and fullscreen buttons
 
-Discover previews of songs by a new artist
+- A beautiful lgoo that animates when you search
 
-Get links to iTunes® for a song, artist, or album
+- Links to Youtube, lyrics, and BPM
 
-Find the length of a song or its release date
+## 😊 Uses
 
-## Known Problems
+Quickly grab album art, to update your song metadata.
+
+Use album art as a new wallpaper for your phone, tablet, or computer.
+
+Show your friends (or remind yourself) how a song goes.
+
+Discover new songs by a specific artist.
+
+Get links to iTunes® for a song, artist, or album.
+
+Quickly find the length of a song or its release date.
+
+## 😭 Known Problems
 
 - On older versions of mobile Safari, the user interface is jumbled
 
 - Some countries listed don't return data
 
-## About
+## ℹ️ About
 
 Data from the iTunes® API
 
