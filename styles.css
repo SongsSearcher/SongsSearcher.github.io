@@ -90,6 +90,10 @@ br, .close, .form-check-label {
   z-index: 99;
 }
 
+button {
+  margin: 5px;
+}
+
 input[type=checkbox] {
 	margin-left: 20px !important;
 	width: 20px;

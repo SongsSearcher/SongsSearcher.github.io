@@ -49,7 +49,7 @@ function getData(term){
           $results[0].insertAdjacentHTML('beforeend', (show?'<div class="row"><div class="col-sm-6">':'') +
       			'<a class="album-art" title="click for larger album art" href="' + fullUrl + '" target="_blank"><img class="img-thumbnail album-art" src="' + displayUrl + '"></a>' + 
       			'<br><audio controls class="song-preview" title="click play to preview ' + result.trackName + '"><source src="' + result.previewUrl + '" type="audio/mp4"></audio>' +
-      			'<br>' + (show?'</div><div class="col-sm-6 song-info">':'<div class="song-info">') +
+      			'<br>' + (show?'</div><div class="col-sm-6">':'') + '<div class="song-info">' +
       			'Track: <a href="' + result.trackViewUrl + '" target="_blank">' + result.trackName + (result.trackExplicitness=='explicit'?' 🅴':'') + '</a>' +
       			'<br>Artist: <a href="' + result.artistViewUrl + '" target="_blank">' + result.artistName + '</a>' +
             '<br>Album: <a href="' + result.collectionViewUrl + '" target="_blank">' + result.collectionName + (result.collectionExplicitness=='explicit'?' 🅴':'') + '</a>' +
@@ -58,12 +58,13 @@ function getData(term){
       			'<br>Release Date: ' + result.releaseDate.slice(0,10) + 
       			'<br>Album Price: ' + result.collectionPrice + ' ' + result.currency +
       			'<br>Song Price: ' + result.trackPrice + ' ' + result.currency +
-      			'<br>' + (show?'</div></div>':'</div>') + 
-            '<div class="song-links"><br>' + 
-            '<a href="https://www.youtube.com/results?search_query=' + searchTerm + '" target="_blank">Search YouTube</a><br>' + 
-            '<a href="https://search.azlyrics.com/search.php?q=' + searchTerm + '" target="_blank">Search AZLyrics</a><br>' + 
-            '<a href="https://songbpm.com/' + bpmSearchTerm + '" target="_blank">Search BPM</a></div>' + 
-            '<hr>');
+
+            '</div><div class="song-links"><br>' + 
+            '<a href="https://www.youtube.com/results?search_query=' + searchTerm + '" target="_blank"><button class="btn btn-sm btn-outline-dark"><i class="fab fa-youtube"></i> Search YouTube</button></a><br>' + 
+            '<a href="https://search.azlyrics.com/search.php?q=' + searchTerm + '" target="_blank"><button class="btn btn-sm btn-outline-dark">Search AZLyrics</button></a><br>' + 
+            '<a href="https://songbpm.com/' + bpmSearchTerm + '" target="_blank"><button class="btn btn-sm btn-outline-dark">Search BPM</button></a></div><br>' + 
+
+      			(show?'</div></div>':'</div>') + '<hr>');
         });
 
         $('.album-art').css('display', $artCheckbox.is(':checked') ? 'inline' : 'none');
