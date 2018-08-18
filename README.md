@@ -80,6 +80,10 @@ Powered by Bootstrap, jQuery, FontAwesome, ShareThis, Google Analytics, and of c
 
 ✉ Email us at <a href="mailto:contact@songssearcher.com">contact@songssearcher.com</a> for questions, comments, or concerns
 
+<a href="https://www.facebook.com/SongsSearcher" target="_blank">facebook.com/SongsSearcher</a>
+
+<a href="https://twitter.com/songssearcher" target="_blank">twitter.com/songssearcher</a>
+
 😃 Developed by <a href="https://justingolden21.github.io">Justin Golden</a>
 
 ✉ Want to talk with me? Email me at <a href="mailto:justingolden@rgbstudios.org">justingolden@rgbstudios.org</a>
