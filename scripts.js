@@ -196,10 +196,16 @@ $('#nightButton').click(function() {
     if(night) {
       $('#nightStyles').prop('href','night.css');
       $('#logo').prop('src','logo/logo-white.svg');
+      $('#theme1').prop('content','#333');
+      $('#theme2').prop('content','#333');
+      $('#theme3').prop('content','#333');
     }
     else {
       $('#nightStyles').prop('href','');
       $('#logo').prop('src','logo/logo.svg');
+      $('#theme1').prop('content','');
+      $('#theme2').prop('content','');
+      $('#theme3').prop('content','');
     }
 });
 

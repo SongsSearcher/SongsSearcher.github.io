@@ -196,6 +196,7 @@ input.bg-primary, .btn-primary {
     position: fixed;
     left: 50%;
     bottom: 25px;
+    z-index: 99;
 }
 #snackbar.show {
   visibility: visible;
