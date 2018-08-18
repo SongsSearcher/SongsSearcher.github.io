@@ -19,7 +19,7 @@ function getData(term){
   $results[0].insertAdjacentHTML('beforeend', '<p><i class="fas fa-sync fa-spin"></i><b> Gathering results...</b></p><hr>');
 
   //for amazon ads
-  amzn_assoc_default_search_phrase = term;
+  // amzn_assoc_default_search_phrase = term;
 
   try {
   $.ajax({

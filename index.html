@@ -97,13 +97,13 @@ option for not show explicit songssearcher
 <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b74abb6098a40001156c744&product=inline-share-buttons' async='async'></script>
 
 <!-- google adsense -->
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-1513318885802867",
     enable_page_level_ads: true
   });
-</script>
+</script> -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104632692-2"></script>
@@ -276,11 +276,11 @@ amzn_assoc_ad_mode = "search";
 amzn_assoc_ad_type = "smart";
 amzn_assoc_marketplace = "amazon";
 amzn_assoc_region = "US";
-//$("#search").val()
-//document.getElementById("search").value
-  let url = new URL(window.location.href);
-  let q = url.searchParams.get("q");
-amzn_assoc_default_search_phrase = q;
+
+let url = new URL(window.location.href);
+let q = url.searchParams.get('q');
+amzn_assoc_default_search_phrase = q || 'Imagine Dragons';
+
 amzn_assoc_default_category = "Music";
 amzn_assoc_linkid = "efce5220811c3644af233e94816a4b90";
 amzn_assoc_design = "in_content";
