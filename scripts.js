@@ -31,7 +31,7 @@ function getData(term){
       data: {
         term: term,
         entity: 'song',
-        country: $langInput.val(),
+        country: $langInput.val() || 'US',
         limit: Math.max($numResults.val(),1)
       },
       method: 'GET',
@@ -110,23 +110,6 @@ function convetMillis(millis) {
 }
 
 $(function() {
-  //load select with country codes
-	$.getJSON('country-codes.json', function(data) {
-		console.log(data);
-		//https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-		//https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
-		//https://stackoverflow.com/questions/18417114/add-item-to-dropdown-list-in-html-using-javascript
-		let options = [];
-		let option = document.createElement('option');
-		for(let i = 0; i < data.length; i++) {
-			option.text = data[i]["name"];
-			option.value = data[i]["alpha-2"];
-			options.push(option.outerHTML);
-		}
-		langInput.insertAdjacentHTML('beforeEnd', options.join('\n'));
-		langInput.selectedIndex = 235; //us
-
-	});
 
   //get url params
   let url = new URL(window.location.href);
@@ -137,6 +120,25 @@ $(function() {
 
   //select input on page load for faster typing
   $input.select();
+
+  //load select with country codes
+  $.getJSON('country-codes.json', function(data) {
+    console.log(data);
+    //https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+    //https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv
+    //https://stackoverflow.com/questions/18417114/add-item-to-dropdown-list-in-html-using-javascript
+    let options = [];
+    let option = document.createElement('option');
+    for(let i = 0; i < data.length; i++) {
+      option.text = data[i]["name"];
+      option.value = data[i]["alpha-2"];
+      options.push(option.outerHTML);
+    }
+    langInput.insertAdjacentHTML('beforeEnd', options.join('\n'));
+    langInput.selectedIndex = 235; //us
+
+  });
+
 
 });
 
@@ -169,6 +171,12 @@ $('#copy').on('click', function() {
 	tmp.select();
 	document.execCommand('copy');
 	tmp.remove();
+
+  // $('#snackbar').empty();
+  // $('#snackbar')[0].insertAdjacentHTML('beforeend', 'copied link: ' + window.location.href);
+  $('#snackbar').toggleClass('show');
+  setTimeout(function(){ $('#snackbar').toggleClass('show'); }, 2000);
+
 });
 
 $searchButton.on('click', function() {

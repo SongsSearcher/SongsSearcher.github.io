@@ -29,7 +29,7 @@ input::selection {
   width:250px;
   display: inline;
 }
-br, .close, .form-check-label {
+br, .close, .form-check-label, #snackbar {
 	user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -182,6 +182,43 @@ input.bg-primary, .btn-primary {
 .amzn-native-brand-text {
   display: none;
 }
+
+
+
+/*snackbar*/
+#snackbar {
+    visibility: hidden;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    position: fixed;
+    left: 50%;
+    bottom: 25px;
+}
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 25px; opacity: 1;}
+}
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 25px; opacity: 1;}
+}
+@-webkit-keyframes fadeout {
+    from {bottom: 25px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+@keyframes fadeout {
+    from {bottom: 25px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
 
 
 /*----------------print----------------*/
