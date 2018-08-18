@@ -6,6 +6,8 @@
 
 🔍 Quickly grab album art, preview songs, and more.
 
+<i>Find information quickly and efficiently about songs, artists, or albums. Includes previews of songs, high quality album art, and more</i>
+
 <img src="screenshot.png">
 
 ## ❓ How to use
