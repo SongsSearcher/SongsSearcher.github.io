@@ -99,15 +99,7 @@ option for not show explicit songssearcher
   });
 </script> -->
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104632692-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'UA-104632692-2');
-</script>
 
 </head>
 <body>
@@ -261,17 +253,30 @@ option for not show explicit songssearcher
 <div class="sharethis-inline-share-buttons"></div>
 <hr>
 
+<div id="snackbar">Copied link successfully</div>
+
 <script src="scripts.js"></script>
 
 <!-- sharethis -->
 <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5b74abb6098a40001156c744&product=inline-share-buttons' async='async'></script>
 
+<!-- putting at bottom of page means it loads last, but can't send data if the page only partially loads -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104632692-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-104632692-2');
+</script>
+
+
+
 <div id="ads">
 Advertisements:
+<!-- amazon ads -->
 <script type="text/javascript">
-// window.onload = function() {
-
-
 amzn_assoc_placement = "adunit0";
 amzn_assoc_tracking_id = "songssearcher-20";
 amzn_assoc_ad_mode = "search";
@@ -288,12 +293,11 @@ amzn_assoc_linkid = "efce5220811c3644af233e94816a4b90";
 amzn_assoc_design = "in_content";
 amzn_assoc_default_browse_node = "301668";
 amzn_assoc_title = "";
-//}
 </script>
 <script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US"></script>
 </div>
 
-<div id="snackbar">Copied link successfully</div>
+
 
 <!-- <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=songssearcher-20&marketplace=amazon&region=US&placement=B071VFNW2H&asins=B071VFNW2H&linkId=71dd4b9098ddf3ba83ec8342fff2f4fb&show_border=true&link_opens_in_new_window=true&price_color=333333&title_color=3333ff&bg_color=ffffff">
 </iframe> -->

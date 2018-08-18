@@ -264,5 +264,9 @@ function toggleFullscreen() {
   }  
 }
 
+function noAds() {
+  $('#ads').css('display','none');
+}
+
 
 //https://codepen.io/shshaw/pen/XddjdR
