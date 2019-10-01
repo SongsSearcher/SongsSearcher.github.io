@@ -202,7 +202,7 @@ input.bg-primary, .btn-primary {
     position: fixed;
     left: 50%;
     bottom: 25px;
-    z-index: 99;
+    z-index: 1051; /*bs modal is 1050*/
 }
 #snackbar.show {
   visibility: visible;
