@@ -4,6 +4,9 @@ hue:240, sat: 100, light: 40,60,80*/
 * {
   text-align: center !important;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   /*top margin already covered by sticky heading*/
   margin-left: 25px;
